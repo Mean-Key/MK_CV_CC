@@ -91,5 +91,6 @@ undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
   7.4240848120337137 ]
 
 ## 렌즈 왜곡 보정 결과데모
+<img src="https://github.com/Mean-Key/MK_CV_CC/blob/main/result.png"/>
 chess_video.mp4
 undistorted_output.mp4
