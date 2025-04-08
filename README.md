@@ -68,14 +68,23 @@ print("[ 0.0000000000, 0.0000000000, 1.0000000000 ]")
   -3.0982602721250032,
   -0.0050665790219284,
   0.0013467451044268,
-  7.4240848120337137 ]
+  7.4240848120337137 ]   
 ==============================
 ## Lens distortion correction 
-**왜곡 계수 포맷**
+
+- **왜곡 계수 포맷**
 ```python
 dist_list = dist.ravel().tolist()
 dist_str = ',\n  '.join([f"{v:.16f}" for v in dist_list])
 print("* Distortion coefficient (k1, k2, p1, p2, k3, ...) = ")
 print("[ " + dist_str + " ]")
 print("==============================\n")
+```
+
+- **렌즈 왜곡 보정**
+```python
+if map1 is None or map2 is None:
+    map1, map2 = cv.initUndistortRectifyMap(K, dist, None, K, (w, h), cv.CV_32FC1)
+
+undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
 ```
