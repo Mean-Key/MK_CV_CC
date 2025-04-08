@@ -91,7 +91,10 @@ undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
   7.4240848120337137 ]
 
 ## 렌즈 왜곡 보정 결과데모
-- 체스판 검은색 테두리 하얀점 표시
+- 체스판 검은색 테두리 하얀점 표시 (결과 동영상 스크린샷)
 <img src="https://github.com/Mean-Key/MK_CV_CC/blob/main/result.png"/>
-chess_video.mp4
+- 원본 동영상 chess_video.mp4
+<img width="80%" src="https://github.com/Mean-Key/MK_CV_VR/blob/main/video/output.gif"/>
+- 카메라 캘리브레이션, 렌즈 왜곡 적용 동영상 undistorted_output.mp4
+<img width="80%" src="https://github.com/Mean-Key/MK_CV_VR/blob/main/video/output.gif"/>
 undistorted_output.mp4
