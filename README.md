@@ -16,8 +16,9 @@ objp[:, :2] = np.mgrid[0:chessboard_size[0], 0:chessboard_size[1]].T.reshape(-1,
 objpoints = []
 imgpoints = []
 gray_shape = None
-
-# 검은색 테두리 하얀점 표시
+```
+- **검은색 테두리 하얀점 표시**
+```python
 def draw_chessboard_corners(img, corners, radius=6, color=(255, 255, 255)):
     img_vis = img.copy()
     for pt in corners:
@@ -30,10 +31,20 @@ def draw_chessboard_corners(img, corners, radius=6, color=(255, 255, 255)):
 cap = cv.VideoCapture(video_path)
 frame_interval = 5
 frame_idx = 0
+```
+- **카메라 캘리브레이션**
+```python
+ret, K, dist, rvecs, tvecs = cv.calibrateCamera(objpoints, imgpoints, gray_shape, None, None)
 
+fx = K[0, 0]
+fy = K[1, 1]
+cx = K[0, 2]
+cy = K[1, 2]
+rmse = ret
+num_images = len(objpoints)
 ```
 ## 결과출력
-** === 결과 출력 ===
+- **결과 출력 코드**
 ```python
 print("\n==============================")
 print("## Camera Calibration Results")
@@ -44,9 +55,23 @@ print("[ {:.10f}, 0.0000000000, {:.10f} ]".format(fx, cx))
 print("[ 0.0000000000, {:.10f}, {:.10f} ]".format(fy, cy))
 print("[ 0.0000000000, 0.0000000000, 1.0000000000 ]")
 ```
-
+==============================
+- **Camera Calibration Results**
+* The number of applied images = 4
+* RMS error = 0.566326
+* Camera matrix (K) =
+[ 1983.8684955170, 0.0000000000, 619.9207220344 ]
+[ 0.0000000000, 1987.4953008129, 910.5903161415 ]
+[ 0.0000000000, 0.0000000000, 1.0000000000 ]
+* Distortion coefficient (k1, k2, p1, p2, k3, ...) =
+[ 0.4298971567482212,
+  -3.0982602721250032,
+  -0.0050665790219284,
+  0.0013467451044268,
+  7.4240848120337137 ]
+==============================
 ## Lens distortion correction 
-** 왜곡 계수 포맷
+**왜곡 계수 포맷**
 ```python
 dist_list = dist.ravel().tolist()
 dist_str = ',\n  '.join([f"{v:.16f}" for v in dist_list])
