@@ -4,9 +4,11 @@
 이 프로그램은 OpenCV를 사용하여 촬영한 영상을 Camera Calibration하는 프로그램입니다.   
 
 ## 기능 소개
-- **Camera calibration**
+
+### Camera calibration# video 선택 
+
+- **chess_video.mp4 (카메라를 이용해 다양한 시점에서의 체스보드 촬영한 영상)**
 ```python
-# video 선택 - chess_video.mp4 (카메라를 이용해 다양한 시점에서의 체스보드 촬영한 영상)
 video_path = 'chess_video.mp4'
 chessboard_size = (9, 6)
 
@@ -74,8 +76,7 @@ if map1 is None or map2 is None:
 undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
 ```
 
-## 결과출력
-==============================
+##  카메라 캘리브레이션 결과
 - **Camera Calibration Results**
 * The number of applied images = 4
 * RMS error = 0.566326
@@ -89,4 +90,3 @@ undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
   -0.0050665790219284,
   0.0013467451044268,
   7.4240848120337137 ]   
-==============================
