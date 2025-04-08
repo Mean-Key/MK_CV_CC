@@ -34,7 +34,7 @@ frame_idx = 0
 ```
 ## 결과출력
 ```python
-=== 결과 출력 ===
+# === 결과 출력 ===
 print("\n==============================")
 print("## Camera Calibration Results")
 print(f"* The number of applied images = {num_images}")
@@ -45,10 +45,12 @@ print("[ 0.0000000000, {:.10f}, {:.10f} ]".format(fy, cy))
 print("[ 0.0000000000, 0.0000000000, 1.0000000000 ]")
 ```
 
-# Lens distortion correction 왜곡 계수 포맷
+# Lens distortion correction 
+```python
+# 왜곡 계수 포맷
 dist_list = dist.ravel().tolist()
 dist_str = ',\n  '.join([f"{v:.16f}" for v in dist_list])
 print("* Distortion coefficient (k1, k2, p1, p2, k3, ...) = ")
 print("[ " + dist_str + " ]")
 print("==============================\n")
-
+```
