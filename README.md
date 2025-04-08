@@ -5,9 +5,9 @@
 
 ## 기능 소개
 
-### Camera calibration# video 선택 
+### Camera calibration 
 
-- **chess_video.mp4 (카메라를 이용해 다양한 시점에서의 체스보드 촬영한 영상)**
+- **video 선택 - chess_video.mp4 (카메라를 이용해 다양한 시점에서의 체스보드 촬영한 영상)**
 ```python
 video_path = 'chess_video.mp4'
 chessboard_size = (9, 6)
@@ -77,7 +77,6 @@ undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
 ```
 
 ##  카메라 캘리브레이션 결과
-- **Camera Calibration Results**
 * The number of applied images = 4
 * RMS error = 0.566326
 * Camera matrix (K) =
@@ -89,4 +88,8 @@ undistorted = cv.remap(frame, map1, map2, interpolation=cv.INTER_LINEAR)
   -3.0982602721250032,
   -0.0050665790219284,
   0.0013467451044268,
-  7.4240848120337137 ]   
+  7.4240848120337137 ]
+
+## 렌즈 왜곡 보정 결과데모
+chess_video.mp4
+undistorted_output.mp4
